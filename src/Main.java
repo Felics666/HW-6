@@ -7,8 +7,8 @@ public class Main {
         /// Задача 1
         System.out.println("Задача 1");
 
-        int deposit = 15000; //сумма которую ложат на счет ежемесячно
-        int total = 0; // переменная где будет храниться нсумма накоплений
+        double deposit = 15000.00; //сумма которую ложат на счет ежемесячно
+        double total = 0; // переменная где будет храниться нсумма накоплений
         int month = 0; // переменная для вывода количества месяцев
 
         while (total < 2_459_900) {
@@ -59,8 +59,8 @@ public class Main {
         System.out.println();
         System.out.println("Задача 4");
 
-        double deposit2 = 15000.00; ///певоначальный вклад
-        double total2 = deposit2; /// переменная которая хранит сумму вклада
+        //double deposit2 = 15000.00; ///певоначальный вклад
+        double total2 = deposit; /// переменная которая хранит сумму вклада
         double amountOfSavings = 12000000.0; ///желаемая сумма накоплений
         int month2 = 0;
 
@@ -68,20 +68,17 @@ public class Main {
             total2 *= 1.07; ///Вычисляем сумму ежемесячного накопления с учетом процентной ставки
             month2++; /// считаем кол-во месяцев
             System.out.format("Месяц %d: сумма накоплений составляет %.2f рублей %n", month2, total2);
-            //// %d - Задается целое число (int. byte, short, int, long)////
-            //// %2f - Используется для задания числа с плавающей запятой (в нашем случае ввыводи 2 знака после запятой)
-            //// %n - делает переход на новую строку
 
             ///String msg = String.format("Месяц %d: сумма накоплений составляет %.2f рублей ", month2, total2); ///Делаем красивый вывод c спользованием строки
             ///System.out.println(msg);
         }
-        System.out.format("Для накопления суммы в %.2f руб., при первоначальном взносе %.2f руб. - потребуется %d месяцев. %n", amountOfSavings, deposit2, month2);
+        System.out.format("Для накопления суммы в %.2f руб., при первоначальном взносе %.2f руб. - потребуется %d месяцев. %n", amountOfSavings, deposit, month2);
 
         ////Задача 5
         System.out.println();
         System.out.println("Задача 5");
 
-        double total3 = deposit2;
+        double total3 = deposit;
         double amountOfSavings2 = 12000000.0;
         int month3 = 0;
 
@@ -92,7 +89,7 @@ public class Main {
                 System.out.format("Месяц %d: сумма накоплений равна - %.2f рублей. %n", month3, total3);
             }
         }
-        System.out.format("Для достижения цели в %.2f руб., при первоначальном взносе %.2f руб. - потребуется %d месяцев %n.", amountOfSavings2, deposit2, month3);
+        System.out.format("Для достижения цели в %.2f руб., при первоначальном взносе %.2f руб. - потребуется %d месяцев %n.", amountOfSavings2, deposit, month3);
 
 //        //////также можно решить через цикл for
 //       for (int month3 = 1; total3 < amountOfSavings2; month3++) {
@@ -106,7 +103,7 @@ public class Main {
         System.out.println();
         System.out.println("Задача 6");
 
-        double total4 = deposit2;
+        double total4 = deposit;
 
         for (int month4 = 1; month4 <= (9 * 12); month4++) { ///(9 * 12) - переводим года в месяцы
             total4 *= 1.07;  //// + 7% ежемесячно от суммы на счету
@@ -122,6 +119,7 @@ public class Main {
 
         System.out.println("Введите число первой пятницы: ");
         int firstFriday = read.nextInt(); ////первая пятница в месяце, значение от 1 до 7
+        int day = 0;
 
         if (firstFriday > 7) {
             System.out.println("Error - число не может быть больше 7");
@@ -135,8 +133,8 @@ public class Main {
             return;
         }
 
-        for (int i = firstFriday; i <= daysPerMonth; i += 7) {
-            System.out.println("Сегодня пятница, " + i + "-е число. Необходимо пдготовить отчет.");
+        for (day = firstFriday; day <= daysPerMonth; day += 7) {
+            System.out.println("Сегодня пятница, " + day + "-е число. Необходимо пдготовить отчет.");
         }
 
         ////Задача 8
@@ -146,12 +144,13 @@ public class Main {
         System.out.println("Введите год ");
         int year = read.nextInt();
 
-        int lastYear = year - 200; /////точка входа
-        int nextYear = year + 100; //// точка выхода
+        int lastYear = year - 200; /////точка входа 200 лет назад
+        int nextYear = year + 100; //// точка выхода 100 лет вперед
+        int year2 = 0;
 
-        for (int i = lastYear; i <= nextYear; i++) { //// берем диапазон от -200 от текущего года до + 100, так как знаем что комета летит каждые 79 лет, берем остаток от деления на 79 = 0, выводим результат.
-            if (i % 79 == 0) {
-                System.out.format("Год %d: пролетит комета. %n", i);
+        for (year2 = lastYear; year2 <= nextYear; year2++) { //// берем диапазон от -200 от текущего года до + 100, так как знаем что комета летит каждые 79 лет, берем остаток от деления на 79 = 0, выводим результат.
+            if (year2 % 79 == 0) {
+                System.out.format("Год %d: пролетит комета. %n", year2);
             }
         }
 
