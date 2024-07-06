@@ -9,11 +9,13 @@ public class Main {
 
         double deposit = 15000.00; //сумма которую ложат на счет ежемесячно
         double total = 0; // переменная где будет храниться нсумма накоплений
+        double rate = 0.12; ///Годовая процентная ставка
         int month = 0; // переменная для вывода количества месяцев
 
         while (total < 2_459_900) {
             month++;
-            total = total + deposit;
+            total += deposit;
+            total += deposit * (rate / 12);
             System.out.println("Месяц - " + month + " сумма накоплений равна " + total + " рублей.");
         }
         System.out.println("Для накопления 2.459.000, потребуется " + month + " месяцев.");
@@ -65,7 +67,7 @@ public class Main {
         int month2 = 0;
 
         while (total2 < amountOfSavings) {
-            total2 *= 1.07; ///Вычисляем сумму ежемесячного накопления с учетом процентной ставки
+            total2 *= 1.07;///Вычисляем сумму ежемесячного накопления с учетом процентной ставки
             month2++; /// считаем кол-во месяцев
             System.out.format("Месяц %d: сумма накоплений составляет %.2f рублей %n", month2, total2);
 
